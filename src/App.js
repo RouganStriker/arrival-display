@@ -53,7 +53,7 @@ class App extends React.Component {
     this.state = {
       guestList: [],
       page: 0,
-      rowsPerPage: 42
+      rowsPerPage: 31
     }
   };
 
@@ -77,7 +77,7 @@ class App extends React.Component {
       const maxPage = Math.ceil(this.state.guestList.length / this.state.rowsPerPage);
 
       this.setState({ page: (this.state.page + 1) % maxPage })
-    }, 1000);
+    }, 10000);
   }
 
   render() {

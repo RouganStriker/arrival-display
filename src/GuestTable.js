@@ -22,17 +22,17 @@ const useStyles = makeStyles(theme => ({
 
 
 function getFlag(location) {
-  if (location == "Toronto") {
+  if (location.toLowerCase() == "toronto") {
     return "🇨🇦";
-  } else if (location == "Hong Kong") {
+  } else if (location.toLowerCase() == "hong kong") {
     return "🇭🇰";
-  } else if (location == "Sydney") {
+  } else if (location.toLowerCase() == "sydney") {
     return "🇦🇺";
-  } else if (location == "New York" || location == "San francisco") {
+  } else if (location.toLowerCase() == "new york" || location.toLowerCase() == "san francisco") {
     return "🇺🇸";
-  } else if (location == "Kota Kinabalu") {
+  } else if (location.toLowerCase() == "kota linabalu") {
     return "🇲🇾";
-  } else if (location == "Paris") {
+  } else if (location.toLowerCase() == "paris") {
     return "🇫🇷";
   }
 }
@@ -59,14 +59,14 @@ export default function GuestTable({ rows = [], initialPage = 0, rowsPP = 24, pa
             rows.slice(pageNum * rowsPerPage, pageNum * rowsPerPage + rowsPerPage).map(
               row => {
                 return (
-                  <TableRow style={{paddingLeft: 20}} key={row.name}>
-                    <TableCell style={{ paddingLeft: 70, fontWeight: "bold" }} className={classes.flatCell}>{row.lastName && "7:00PM" || ""}</TableCell>
-                    <TableCell className={classes.flatCell}>{row.lastName}</TableCell>
-                    <TableCell className={classes.flatCell}>{row.firstName}</TableCell>
-                    <TableCell style={{ fontWeight: "bold", color: "rgb(255,192,0)" }} className={classes.flatCell}>{row.lastName && "KK 0908" }</TableCell>
-                    <TableCell style={{ paddingRight: 0 }} className={classes.flatCell}>{row.from && getFlag(row.from) }</TableCell>
-                    <TableCell style={{ fontWeight: "bold" }} className={classes.flatCell}>{row.from}</TableCell>
-                    <TableCell className={classes.flatCell}>{row.destination}</TableCell>
+                  <TableRow height={row.lastName && 25 || 16} style={{paddingLeft: 20}} key={row.name}>
+                    <TableCell style={{ borderBottom: 0, paddingLeft: 70, fontWeight: "bold" }} className={classes.flatCell}>{row.lastName && "7:00PM" || ""}</TableCell>
+                    <TableCell style={{ borderBottom: 0}} className={classes.flatCell}>{row.lastName}</TableCell>
+                    <TableCell style={{ borderBottom: 0}} className={classes.flatCell}>{row.firstName}</TableCell>
+                    <TableCell style={{ borderBottom: 0, fontWeight: "bold", color: "rgb(255,192,0)" }} className={classes.flatCell}>{row.lastName && "KK 0908" }</TableCell>
+                    <TableCell style={{ borderBottom: 0, paddingRight: 0 }} className={classes.flatCell}>{row.from && getFlag(row.from) }</TableCell>
+                    <TableCell style={{ borderBottom: 0, fontWeight: "bold" }} className={classes.flatCell}>{row.from}</TableCell>
+                    <TableCell style={{ borderBottom: 0}} className={classes.flatCell}>{row.destination}</TableCell>
                   </TableRow>
                 );
             })
