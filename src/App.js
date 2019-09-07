@@ -53,7 +53,7 @@ class App extends React.Component {
     this.state = {
       guestList: [],
       page: 0,
-      rowsPerPage: 31
+      rowsPerPage: 32
     }
   };
 
