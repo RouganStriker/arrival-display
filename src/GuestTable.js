@@ -30,7 +30,7 @@ function getFlag(location) {
     return "🇦🇺";
   } else if (location.toLowerCase() == "new york" || location.toLowerCase() == "san francisco") {
     return "🇺🇸";
-  } else if (location.toLowerCase() == "kota linabalu") {
+  } else if (location.toLowerCase() == "kota kinabalu") {
     return "🇲🇾";
   } else if (location.toLowerCase() == "paris") {
     return "🇫🇷";
