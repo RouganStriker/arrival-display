@@ -64,7 +64,8 @@ class App extends React.Component {
         complete: (result) => {
           const guestList = [];
           result.data.forEach(guest => {
-            guestList.push(createData(guest[2], guest[3], guest[7], guest[9]))
+            guestList.push(createData(guest[2], guest[3], guest[7], guest[9]));
+            guestList.push({})
           });
           this.setState({ guestList })
         }
@@ -77,7 +78,7 @@ class App extends React.Component {
       const maxPage = Math.ceil(this.state.guestList.length / this.state.rowsPerPage);
 
       this.setState({ page: (this.state.page + 1) % maxPage })
-    }, 10000);
+    }, 15000);    // 15 seconds
   }
 
   render() {
