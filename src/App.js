@@ -30,6 +30,7 @@ function Header() {
     <div style={{
       margin: 12,
       paddingLeft: 50,
+      paddingTop: 20,
     }}>
       <FlightIcon fill="white" width={55} height={55} style={{
         top: ".47em",
@@ -62,8 +63,10 @@ class App extends React.Component {
         complete: (result) => {
           const guestList = [];
           result.data.forEach(guest => {
-            guestList.push(createData(guest[2], guest[3], guest[7], guest[9]));
-            guestList.push({})
+            if (guest.length > 1) {
+              guestList.push(createData(guest[2], guest[3], guest[7], guest[9]));
+              guestList.push({})
+            }
           });
           this.setState({ guestList })
         }
