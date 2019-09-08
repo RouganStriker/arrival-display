@@ -9,8 +9,6 @@ import { ThemeProvider } from '@material-ui/styles';
 
 import Papa from 'papaparse';
 
-const guestList = [];
-
 function loadGuests() {
   return fetch('/guests.csv').then(function (response) {
     let reader = response.body.getReader();
@@ -53,7 +51,7 @@ class App extends React.Component {
     this.state = {
       guestList: [],
       page: 0,
-      rowsPerPage: 32
+      rowsPerPage: 34
     }
   };
 

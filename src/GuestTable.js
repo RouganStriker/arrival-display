@@ -23,17 +23,17 @@ const useStyles = makeStyles(theme => ({
 
 function getFlag(location) {
   if (location.toLowerCase() == "toronto") {
-    return "🇨🇦";
+    return <img src="/canada.png" />;
   } else if (location.toLowerCase() == "hong kong") {
-    return "🇭🇰";
+    return <img src="/hk.png" />; //"🇭🇰";
   } else if (location.toLowerCase() == "sydney") {
-    return "🇦🇺";
+    return <img src="/aussie.png" />; //"🇦🇺";
   } else if (location.toLowerCase() == "new york" || location.toLowerCase() == "san francisco") {
-    return "🇺🇸";
+    return <img src="/usa.png" />; //"🇺🇸";
   } else if (location.toLowerCase() == "kota kinabalu") {
-    return "🇲🇾";
+    return <img src="/malay.png" />; //"🇲🇾";
   } else if (location.toLowerCase() == "paris") {
-    return "🇫🇷";
+    return <img src="/france.png" />; //"🇫🇷";
   }
 }
 export default function GuestTable({ rows = [], initialPage = 0, rowsPP = 24, pageNum = 0 }) {
@@ -45,13 +45,13 @@ export default function GuestTable({ rows = [], initialPage = 0, rowsPP = 24, pa
       <Table className={classes.table}>
         <TableHead>
           <TableRow style={{paddingLeft: 20}}>
-            <TableCell style={{paddingLeft: 70}} width={150} className={classes.flatCell}>Time</TableCell>
-            <TableCell width={220} className={classes.flatCell}>Passenger</TableCell>
+            <TableCell style={{paddingLeft: 70}} width={150} className={classes.flatCell}>TIME</TableCell>
+            <TableCell width={220} className={classes.flatCell}>PASSENGER</TableCell>
             <TableCell width={220} className={classes.flatCell}></TableCell>
-            <TableCell width={150} className={classes.flatCell}>Flight</TableCell>
+            <TableCell width={150} className={classes.flatCell}>FLIGHT</TableCell>
             <TableCell width={25} style={{ paddingRight: 0 }} className={classes.flatCell}></TableCell>
-            <TableCell width={200} className={classes.flatCell}>From</TableCell>
-            <TableCell className={classes.flatCell}>Destination</TableCell>
+            <TableCell width={200} className={classes.flatCell}>FROM</TableCell>
+            <TableCell className={classes.flatCell}>DESTINATION</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -61,12 +61,12 @@ export default function GuestTable({ rows = [], initialPage = 0, rowsPP = 24, pa
                 return (
                   <TableRow height={row.lastName && 25 || 16} style={{paddingLeft: 20}} key={row.name}>
                     <TableCell style={{ borderBottom: 0, paddingLeft: 70, fontWeight: "bold" }} className={classes.flatCell}>{row.lastName && "7:00PM" || ""}</TableCell>
-                    <TableCell style={{ borderBottom: 0}} className={classes.flatCell}>{row.lastName}</TableCell>
-                    <TableCell style={{ borderBottom: 0}} className={classes.flatCell}>{row.firstName}</TableCell>
+                    <TableCell style={{ borderBottom: 0}} className={classes.flatCell}>{row.lastName && row.lastName.toUpperCase()}</TableCell>
+                    <TableCell style={{ borderBottom: 0}} className={classes.flatCell}>{row.firstName && row.firstName.toUpperCase()}</TableCell>
                     <TableCell style={{ borderBottom: 0, fontWeight: "bold", color: "rgb(255,192,0)" }} className={classes.flatCell}>{row.lastName && "KK 0908" }</TableCell>
-                    <TableCell style={{ borderBottom: 0, paddingRight: 0 }} className={classes.flatCell}>{row.from && getFlag(row.from) }</TableCell>
-                    <TableCell style={{ borderBottom: 0, fontWeight: "bold" }} className={classes.flatCell}>{row.from}</TableCell>
-                    <TableCell style={{ borderBottom: 0}} className={classes.flatCell}>{row.destination}</TableCell>
+                    <TableCell style={{ borderBottom: 0, paddingRight: 0 }} className={classes.flatCell}>{row.from && row.from && getFlag(row.from.toUpperCase()) }</TableCell>
+                    <TableCell style={{ borderBottom: 0, fontWeight: "bold" }} className={classes.flatCell}>{row.from && row.from.toUpperCase()}</TableCell>
+                    <TableCell style={{ borderBottom: 0}} className={classes.flatCell}>{row.destination && row.destination.toUpperCase()}</TableCell>
                   </TableRow>
                 );
             })
